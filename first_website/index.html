@@ -8,17 +8,9 @@
 
         <style>
             section {
-            display: -webkit-flex;
-            display: flex;
+                display: -webkit-flex;
+                display: flex;
             }
-            nav {
-                -webkit-flex: 1;
-                -ms-flex: 1;
-                flex: 1;
-                padding: 20px;
-                }
-
-            
             
             h1 {
                 text-align: center;
@@ -37,8 +29,10 @@
             table {
                 font-family: arial, sans-serif;
                 border-collapse: collapse;
+                margin: 20px;
                 width: 100%;
                 text-align: center;
+                color: black;
             }
 
             td, th {
@@ -58,15 +52,14 @@
 	<body>
         <h1 >ShaoMin's Personal Website</h1>
         <h2 >IT2002 First Project Assignment</h2>
-        <h2 >Due: 4th September 2020</h2>
+        <h2 >Due: 04/9/2020</h2>
         <p style="text-align: end">Time Now: 
             <script type="text/javascript">
-                <!--
                 var currentTime = new Date()
                 var month = currentTime.getMonth() + 1
                 var day = currentTime.getDate()
                 var year = currentTime.getFullYear()
-                var date = month + "/" + day + "/" + year
+                var date = day + "/" + month + "/" + year
 
                 var hour = currentTime.getHours()
                 var minute = currentTime.getMinutes()
@@ -74,8 +67,7 @@
                 var time = hour + ":" + minute + ":" + second
 
                 document.write(date + " " + time)
-                //-->
-                </script>
+            </script>
         </p>
         
         <hr>
@@ -121,7 +113,9 @@
             <section>
                 <nav>
                     <a href="mailto:liushaomin@u.nus.edu">
-                    <img src="image.jpg" alt='myself' style="width: 200px;"
+                    <img src="image.jpg" 
+                        alt='myself' 
+                        style="width: 200px; margin: 10px;"
                     </a>
                 </nav>
 

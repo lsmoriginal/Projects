@@ -11,4 +11,4 @@ Create my own peronal website for IT2002, the website must be:
 - [X] a cascading style sheet in CSS 
   - [X] format the table 
 - [X] use JavaScript to update a paragraph 
-  - [ ] the paragraph is updated to the current date and time, every second  
+  - [X] the paragraph is updated to the current date and time, every second  
