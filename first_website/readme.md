@@ -1,6 +1,6 @@
 Create my own peronal website for IT2002, the website must be:  
 
-- [ ] accessible from (https://vmname:8080/perso)  
+- [X] accessible from (https://vmname:8080/perso)  
 - [X] contain several headings  
 - [X] several paragraphs 
 - [X] a table

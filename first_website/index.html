@@ -4,7 +4,6 @@
         <title>ShaoMin</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="refresh" content="1"/>
 
         <style>
             section {
@@ -55,6 +54,14 @@
         <h2 >Due: 04/9/2020</h2>
         <p style="text-align: end">Time Now: 
             <script type="text/javascript">
+                var refresh = function() {
+                    $.ajax({
+                        url: "/some/path",
+                        cache: false,
+                        success: success
+                    });
+                }
+
                 var currentTime = new Date()
                 var month = currentTime.getMonth() + 1
                 var day = currentTime.getDate()
@@ -67,6 +74,7 @@
                 var time = hour + ":" + minute + ":" + second
 
                 document.write(date + " " + time)
+                setTimeout(refresh, 1000);
             </script>
         </p>
         
@@ -113,7 +121,7 @@
             <section>
                 <nav>
                     <a href="mailto:liushaomin@u.nus.edu">
-                    <img src="image.jpg" 
+                    <img src="https://github.com/lsmoriginal/Projects/blob/master/first_website/image.jpg?raw=true" 
                         alt='myself' 
                         style="width: 200px; margin: 10px;"
                     </a>
