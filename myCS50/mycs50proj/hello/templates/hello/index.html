@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>ShaoMin</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="refresh" content="1"/>
+
+        <style>
+            section {
+                display: -webkit-flex;
+                display: flex;
+            }
+            
+            h1 {
+                text-align: center;
+                font-size: xx-large;
+                border: 3px solid black;
+            }
+
+            h2 {
+                text-align: end;
+            }
+
+            .maintext {
+                font-size: medium;
+            }
+
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                margin: 20px;
+                width: 100%;
+                text-align: center;
+                color: black;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                font-weight: bolder;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+
+    </head>
+    
+	<body>
+        <h1 >ShaoMin's Personal Website</h1>
+        <h2 >IT2002 First Project Assignment</h2>
+        <h2 >Due: 04/9/2020</h2>
+        <p style="text-align: end">Time Now: 
+            <script type="text/javascript">
+                var currentTime = new Date()
+                var month = currentTime.getMonth() + 1
+                var day = currentTime.getDate()
+                var year = currentTime.getFullYear()
+                var date = day + "/" + month + "/" + year
+
+                var hour = currentTime.getHours()
+                var minute = currentTime.getMinutes()
+                var second = currentTime.getSeconds()
+                var time = hour + ":" + minute + ":" + second
+
+                document.write(date + " " + time)
+            </script>
+        </p>
+        
+        <hr>
+        <div>
+            <p class="maintext">
+                This is a website built to fullfil the assignment for IT2002 
+                to build a first personal website for ourselves. The following is a list of requirement to be met for this website.  
+            </p>
+
+            <ul>
+                <li>Accessible from <a href="https://vmname:8080/perso">Click Me</a></li>  
+                <li>Contains several headings</li>
+                <li>Several paragraphs</li>
+                <li>A table</li>
+                <li>A list</li>
+                <li>An image, that is:</li>
+                    <ul>
+                        <li>a hyperlink</li>
+                        <li>opens to the email client at the address indicated</li>
+                    </ul>
+                <li>CSS, that is able to:</li>
+                    <ul>
+                        <li>format the table</li>
+                    </ul>
+                <li>Use JavaScript to update a paragraph</li>
+                    <ul>
+                        <li>updated to the current date and time</li>
+                        <li>update every seconds</li>
+                    </ul>
+            </ul>
+
+            <p class="maintext">
+                This is an interesting project, takes up a lot of time to learn so many things though.
+            </p>
+        </div>
+        <hr>
+
+        <div>
+            <p class="maintext">
+                The following is a table formatted using CSS.
+            </p>
+            
+            <section>
+                <nav>
+                    <a href="mailto:liushaomin@u.nus.edu">
+                    <img src="image.jpg" 
+                        alt='myself' 
+                        style="width: 200px; margin: 10px;"
+                    </a>
+                </nav>
+
+                <article>
+                    <table>
+                        <tr>
+                          <th></th>
+                          <th>Information</th>
+                        </tr>
+                        <tr>
+                          <td>Full Name</td>
+                          <td>Liu ShaoMin</td>
+                        </tr>
+                        <tr>
+                          <td>Gender</td>
+                          <td>Male</td>
+                        </tr>
+                        <tr>
+                          <td>Major</td>
+                          <td>Data Science & Analytics</td>
+                        </tr>
+                        <tr>
+                          <td>Ethnic</td>
+                          <td>Chinese</td>
+                        </tr>
+                      </table>
+                </article>
+            </section>
+        </div>
+	</body>
+</html>
