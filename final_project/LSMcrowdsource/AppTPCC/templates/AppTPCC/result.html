@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>
+            Result
+        </title>
+    </head>
+
+    <body>
+        <p>here is the searched text: {{ the_text }}</p>
+
+        <table border="1">
+            {% for r in records %}
+                <tr>
+                    {% for i in r %}
+                    <td> {{ i }}  </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p>That is all the results</p>
+    </body>
+</html>

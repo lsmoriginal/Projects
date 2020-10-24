@@ -1,0 +1,83 @@
+<head>
+    Home
+</head>
+
+<body>
+    <h1>Welcome, {{ fullname }}</h1>
+    <h1>Hello, this is your home page</h1>
+
+    <h3>This is your ongoing projects!</h3>
+    <table border="1">
+        <tr>
+            {% for header in header_ongoing %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+
+        {% for r in ongoing_projects %}
+            <tr>
+                {% for i in r %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+    <h3><h3>This is your expired projects!</h3></h3>
+    <table border="1">
+        <tr>
+            {% for header in header_expired %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in expired_projects %}
+            <tr>
+                {% for i in r %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+
+            <td>
+                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+            </td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+    <h3><h3>Here are your donated projects!</h3></h3>
+    <table border="1">
+        <tr>
+            {% for header in header_donated %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in donated_projects %}
+            <tr>
+                {% for i in r %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+
+            <td>
+                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+            </td>
+
+            </tr>
+
+        {% endfor %}
+    </table>
+
+</body>

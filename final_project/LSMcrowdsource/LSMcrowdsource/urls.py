@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.urls import path, include
 
 urlpatterns = [
@@ -22,4 +21,8 @@ urlpatterns = [
 
     # root directory goes to log in directly
     path('', include('AppLogin.urls')),
+    path('trial/', include('AppTPCC.urls')),
+
+    # include the namespace of the app
+    path('userhome/', include('AppUserhome.urls', namespace='userhome')),
 ]

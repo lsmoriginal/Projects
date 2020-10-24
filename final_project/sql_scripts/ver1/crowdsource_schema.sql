@@ -8,10 +8,12 @@ CREATE TABLE users(
 
 CREATE TABLE projects(
 	pid VARCHAR(20) PRIMARY KEY,
+	uid VARCHAR(20),
 	ptarget NUMERIC NOT NULL CHECK(ptarget > 0),
 	pdeadline TIMESTAMP NOT NULL,
 	pdesc VARCHAR(500),
-	ppicurl VARCHAR(100)
+	ppicurl VARCHAR(100),
+	FOREIGN KEY(uid) REFERENCES users(uid)
 );
 
 CREATE TABLE initiates(
@@ -40,3 +42,4 @@ CREATE TABLE donates(
 DROP TABLE donates;
 DROP TABLE users;
 DROP TABLE projects;
+DROP TABLE initiates;

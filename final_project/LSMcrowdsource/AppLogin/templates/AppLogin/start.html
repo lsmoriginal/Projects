@@ -1,37 +1,41 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel = "stylesheet" href="style.css">
+   <link rel = "stylesheet" href="{% static 'AppLogin/style.css' %}">
+   <script src="https://kit.fontawesome.com/883669fa4c.js" crossorigin="anonymous"></script>
    <title>Welcome!</title>
 </head>
 
 <body>
-   <section class = "column">
+   <header>
+      <h2> Welcome back!</h2>
+   </header>
 
-   <div class = "left">
-      <img src = "Images/image_A.jpg" alt="image">
-   </div>
+   <nav>
+      <a class = "active_tab" href="start.html">Sign In</a>  
+      <a href="{% url 'login:create_account' %}">Create Account</a>
+   </nav>
 
-   <div class = "right">
-      <nav>
-         <a class = "active_tab" href="start.html">Sign In</a>  
-         <a href = "create.html">Create Account</a>
-      </nav>
-      <form> 
-
-         <input type="text" placeholder = "username">
-         <br>
-         <input type="password" placeholder = "password">
-         <br>
-         <button type = "submit">Log in</button>
-         <br>
-      </form>
+   <form class = "login" action="{% url 'login:process_login' %}" method="post"> 
+      <!-- <i class="far fa-user"></i> -->
+      {% csrf_token %}
+      <input type="text" placeholder = "Username" name='username'>
+      <br>
+      <input type="Password" placeholder = "Password" name="password">
+      <br>
+      <button type = "submit">Log in</button>
+      <br>
+   </form>
 
    </div>
 
    </section>
+</main>
+
 
 </html>

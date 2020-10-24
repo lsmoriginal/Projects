@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Roboto:wght@100&display=swap');
+
+section {
+   display: flex;
+   box-sizing: border-box;
+   height: 80vh;
+   /* flex-wrap: nowrap */
+}
+
+nav a {
+   text-decoration: none;
+   color:black;
+   font-size: 30px;
+   margin-right: 30px;
+   font-family: Roboto;
+   font-weight: 700;
+}
+
+nav .active_tab {
+   color: rosybrown;
+}
+
+.left {
+   width: 50%;
+   /* background: lavenderblush; */
+   padding: 20px;
+   
+}
+
+.left img {
+   width: 100%;
+   display: block;
+   align-items: center;
+}
+
+
+.right {
+   width: 50%;
+   /* background: beige; */
+   padding: 20px;
+   margin-top: 30px;
+}
+
+
+
+input {
+   border: none;
+   width: 80%;
+
+}
+
+
+.flex_container {
+   font-size: 10px;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+
+}
+
+.one {
+   background: pink;
+   width: 50%;
+   box-sizing: border-box;
+   margin: 0px 10px;
+}
+
+.two {
+   background: powderblue;
+   flex: 50%;
+}
+
+.three {
+   background: thistle;
+   flex: 50%;
+}

@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Project: {{ project_name }}</title>
+</head>
+
+<body>
+    <img src="{{ prj_img }}" 
+    alt='myself' 
+    style="width: 200px; margin: 10px;">
+
+    <H1>Project: {{ project_name }}</H1>
+    <h3> Owner: {{ project_owner }}</h3>
+    <p>Project Due: {{ pdeadline }}</p>
+    <p>Descripton:</p>
+    {{ pdesc }}
+
+    
+    <h2>Collection so far: ${{ total_sum }}/${{ ptarget }}</h2>
+    <h2>{{ progress }}%  completed</h2>
+
+    {% if is_owner %}
+    <table border="1">
+        <tr>
+            {% for header in donor_header %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in donor_query_result %}
+            <tr>
+                {% for i in r %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+            </tr>
+
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
