@@ -76,7 +76,8 @@ def registered(request):
         request, 
         'AppLogin/registered.html',
         {
-            'message': error_msg
+            'message': error_msg,
+            'status': "Error",
          })
     elif topupamt < 0:
         error_msg = 'Top-Up cannot be negative!'
@@ -85,7 +86,8 @@ def registered(request):
         request, 
         'AppLogin/registered.html',
         {
-            'message': error_msg
+            'message': error_msg,
+            'status': "Error",
          })    
 
     query = f'''
@@ -106,7 +108,8 @@ def registered(request):
         request, 
         'AppLogin/registered.html',
         {
-            'message': error_msg
+            'message': error_msg,
+            'status': "Error",
          })
     
     query = f'''
@@ -122,5 +125,6 @@ def registered(request):
         request, 
         'AppLogin/registered.html',
         {
-            'message': 'Registeration Sucessful!'
+            'message': 'Registeration Successful!',
+            'status': "Successful",
          })

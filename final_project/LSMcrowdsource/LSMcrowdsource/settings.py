@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'AppLogin',
     'AppTPCC',
     'AppUserhome',
+    "AppProjectSearch",
+    "AppAdminAccess",
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,8 @@ WSGI_APPLICATION = 'LSMcrowdsource.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'IT2002_crowdsourceDB',
+        # 'NAME': 'IT2002_crowdsourceDB',
+        'NAME': 'crowdsource2',
         'HOST': '127.0.0.1',
         'PORT': '5432',
         'USER': 'postgres',

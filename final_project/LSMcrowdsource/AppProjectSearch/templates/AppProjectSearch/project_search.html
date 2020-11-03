@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Project Gallary</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+        <h1>Welcome {{ fullname }}</h1>
+        <h2>Search your projects here!</h2>
+
+        <h2 style="color: red;"> {{ message }}</h2>
+        <h2 style="color: red;"> {{ error }}</h2>
+
+        <form class = "create" action="{% url 'projectsearch:search_proj' status='searched' %}" method="post">
+            {% csrf_token %}
+    
+            
+            <p> I am looking for a project that has a name like: </p>
+    
+            <i class="far fa-user-circle"></i>
+            <input type="text" placeholder="Project Title (accept REGEX)" name="proj_title" value="{{proj_title}}">
+            <p>that is own by:</p>
+            <input type="text" placeholder="Owner Name (accept REGEX)" name="owner_name" value="{{owner_name}}">
+            <br>
+            <p>Tell us more:</p>
+            <input type="text" placeholder="Project Keywords or Description(accept REGEX)" name="proj_kwd" value="{{proj_kwd}}">
+            <br>
+            <i class="far fa-hand-holding-usd"></i>
+            <input type= "number" placeholder = "Min Percent Funded" name="min_fd" value={{min_fd}}>
+    
+            <button type="submit">Search</button>
+            <br>
+        </form>
+
+        {% if has_result %}
+        <h2>Results:</h2>
+        <table border="1">
+            <tr>
+                {% for header in result_header %}
+                <th> {{ header }} </th>
+                {% endfor %}
+            </tr>
+    
+            {% for r in result_projects %}
+                <tr>
+                    <td>
+                        <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                    </td>
+    
+                    {% for i in r|slice:"1:" %}
+                    <td> {{ i }}  </td>
+                    {% endfor %}
+    
+                </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+            
+</body>

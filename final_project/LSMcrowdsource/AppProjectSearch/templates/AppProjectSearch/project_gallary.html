@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Project Gallary</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+        <h1>Welcome 
+            <a href="{% url 'adminaccess:adminpage' %}">
+            {{ fullname }}</a>
+        </h1>
+        
+        <h2>Here are some of the projects</h2>
+
+    <h3>These are all the ongoing projects!</h3>
+    <table border="1">
+        <tr>
+            {% for header in ongoing_header %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in ongoing_projects %}
+            <tr>
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+
+            </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <h2>Didn't Find Your Interested Project?</h2>
+    <a href="{% url 'projectsearch:search_proj' status='blank' %}"> Try Searching </a>
+    <br>
+
+    <h3><h3>Hall of Fame</h3></h3>
+    <table border="1">
+        <tr>
+            {% for header in funded_headers %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in funded_projects %}
+            <tr>
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <h3><h3>Hall of Shame</h3></h3>
+    <table border="1">
+        <tr>
+            {% for header in failed_headers %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+
+        {% for r in failed_projects %}
+            <tr>
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
+                <td> {{ i }}  </td>
+                {% endfor %}
+            </tr>
+
+        {% endfor %}
+    </table>
+
+    <br>
+    <br>
+
+</body>

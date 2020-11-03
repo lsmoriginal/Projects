@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+
+        <h1>Welcome 
+            <a href="{% url 'adminaccess:adminpage' %}">
+                {{ my_fullname }}</a>
+        </h1>
+
+    <br>
+
+    <h3 style="color:{{msg_col}};">
+        {{ message }}
+    </h3>
+
+    <form class = "create" action="{% url 'adminaccess:edit_user_update' uid=user_id update='True' %}" method="post">
+        {% csrf_token %}
+
+
+        <i class="far fa-user-circle"></i>
+        <input type="text" placeholder="Picture URL" name=upicurl value="{{upicurl}}">
+        <i class="far fa-user-circle"></i>
+        <input type="text" placeholder="Username" name=username value="{{username}}">
+        <i class="far fa-address-card"></i>
+        <input type= "text" placeholder = "Full Name" name=fullname value="{{fullname}}"><br>
+        <i class="far fa-hand-holding-usd"></i>
+        <input type= "number" placeholder = "Cash Amount" name=ucash value={{ucash}}><br>
+        <i class="far fa-lock"></i>
+        <input type="text" placeholder ="Password" name=password value="{{password}}"><br>
+        <button type="Edit">Confirm Edit</button>
+        <br>
+     </form>
+
+     <h2 style="color:red;">
+        <a href="{% url 'adminaccess:del_user' uid=user_id %}" method='post'>DELETE USER</a>
+    </h2>
+
+        
+</body>

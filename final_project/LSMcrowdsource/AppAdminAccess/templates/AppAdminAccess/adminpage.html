@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Admin Page</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+
+        <h1>Welcome 
+            <a href="{% url 'adminaccess:adminpage' %}">
+                {{ fullname }}</a>
+        </h1>
+        <h2>This is your Admin Page</h2>
+
+        <h3>You have access to the following:</h3>
+
+        <br>
+        <br>
+
+        <h2>Users</h2>
+        <table border="1">
+            <tr>
+                <th> Users </th>
+            </tr>
+    
+    
+            {% for r in user_list %}
+                <tr>
+                    <td>
+                        <a href="{% url 'adminaccess:edit_user' user_id=r.0 %}">{{ r.0 }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+        <br>
+
+        <h2>Projects</h2>
+        <table border="1">
+            <tr>
+                <th> Project Title </th>
+            </tr>
+    
+    
+            {% for r in proj_list %}
+                <tr>
+                    <td>
+                        <a href="{% url 'adminaccess:edit_proj' proj_id=r.0 %}">{{ r.0 }}</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+
+
+        <br>
+        <br>
+
+        <h2>Donations</h2>
+        <table border="1">
+            <tr>
+                <th> Donors </th>
+                <th> Project Title </th>
+                <th> Donation Time </th>
+                <th> Amount </th>
+            </tr>
+    
+    
+            {% for r in donate_list %}
+                <tr>
+                    {% for i in r %}
+                    <td>
+                        <a href="{% url 'adminaccess:edit_donation' u_id=r.0 proj_id=r.1 d_time=r.2 %}">{{ i }}</a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+
+
+
+    
+</body>

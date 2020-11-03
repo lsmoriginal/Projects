@@ -1,10 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    Home
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Home</title>
 </head>
 
 <body>
-    <h1>Welcome, {{ fullname }}</h1>
-    <h1>Hello, this is your home page</h1>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+
+        <h1>Welcome 
+            
+            <a href="{% url 'adminaccess:adminpage' %}">
+                {{ fullname }}</a>
+        </h1>
+        <h2>Hello, this is your home page</h2>
+
+        <img src="{{ user_img }}" 
+        alt='myself' 
+        style="width: 200px; margin: 10px;">
+
+        <h2>Your account balance is: ${{ acc_bal }}</h2>
+
+    <h2>
+        <a href="{% url 'userhome:new_project' state='new_proj' %}">New Project</a>
+    </h2>
 
     <h3>This is your ongoing projects!</h3>
     <table border="1">
@@ -17,13 +47,14 @@
 
         {% for r in ongoing_projects %}
             <tr>
-                {% for i in r %}
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
                 <td> {{ i }}  </td>
                 {% endfor %}
 
-                <td>
-                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
-                </td>
             </tr>
         {% endfor %}
     </table>
@@ -41,14 +72,13 @@
 
         {% for r in expired_projects %}
             <tr>
-                {% for i in r %}
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
                 <td> {{ i }}  </td>
                 {% endfor %}
-
-            <td>
-                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
-            </td>
-
             </tr>
 
         {% endfor %}
@@ -67,14 +97,13 @@
 
         {% for r in donated_projects %}
             <tr>
-                {% for i in r %}
+                <td>
+                    <a href="{% url 'userhome:view_project' proj_id=r.0 %}">{{ r.0 }}</a>
+                </td>
+
+                {% for i in r|slice:"1:" %}
                 <td> {{ i }}  </td>
                 {% endfor %}
-
-            <td>
-                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
-            </td>
-
             </tr>
 
         {% endfor %}

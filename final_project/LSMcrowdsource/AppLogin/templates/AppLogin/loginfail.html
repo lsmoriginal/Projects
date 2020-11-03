@@ -1,13 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Log in Failed!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Fail</title>
 </head>
+<link rel="stylesheet" href="{% static 'AppLogin/style_new.css' %}">
+<script src="https://kit.fontawesome.com/883669fa4c.js" crossorigin="anonymous"></script>
 
 <body>
-    <H1>You suck, log in failed!</H1>
-    <h2></h2>
+    <header class = "center loginfail">
+        <h1 class="logo">LSMcrowdsource</h1>
+        <h1>Oops! Login failed :(</h1>
+        <p>Looks like you don't have an account with us <br>
+        <a class="loginfail" href="{% url 'login:login_page' %}">Try again?</a><br>
+        
+    </header>
 
-    <a href="{% url 'login:login_page' %}">Go back</a>
+<main class = "center">
+    <p>
+    Don't have an account? <a class="loginfail" href="{% url 'login:create_account' %}">Join us now!</a></p>
+</main>
+
+
 </body>
+
+</html>

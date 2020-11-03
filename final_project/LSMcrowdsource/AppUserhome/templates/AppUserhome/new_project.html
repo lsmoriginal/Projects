@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>New Project</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+    <h2 style="color:red;">
+        {{ message }}
+    </h2>
+
+    <form class = "create" action="{% url 'userhome:proj_editmsg' %}" method="post">
+        {% csrf_token %}
+
+        <i class="far fa-user-circle"></i>
+        <input type="text" placeholder="Project Pic URL" name="picURL" value="{{picURL}}">
+        <br>
+
+        <i class="far fa-user-circle"></i>
+        <input type="text" placeholder="Project Title" name="pid" value="{{pid}}">
+        <br>
+
+        <input type="text" placeholder="Description" name="description" value="{{description}}">
+        <br>
+
+        <i class="far fa-address-card"></i>
+        <input type= "text" placeholder = "Keywords" name="keywords" value="{{keywords}}">
+        <br>
+
+        <i class="far fa-hand-holding-usd"></i>
+        <input type= "number" placeholder = "Fund Target" name="target_amt" value="{{target_amt}}">
+        <br>
+
+        <i class="far fa-hand-holding-usd"></i>
+        <input type= "number" placeholder = "Duration (Days)" name="proj_dur" value="{{proj_dur}}">
+        <br>
+
+
+        <button type="submit">Register</button>
+        <br>
+     </form>
+</body>

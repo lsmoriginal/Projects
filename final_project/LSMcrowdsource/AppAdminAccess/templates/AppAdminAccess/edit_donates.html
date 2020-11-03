@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Home</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
+
+        <h1>Welcome 
+            <a href="{% url 'adminaccess:adminpage' %}">
+                {{ my_fullname }}</a>
+        </h1>
+
+        <h2>Cash donated to: {{ pid }}</h2>
+        <h2>On: {{ dtime }}</h2>
+
+    <h3 style="color:{{msg_col}};">
+        {{ message }}
+    </h3>
+
+
+    <form class = "create" action="{% url 'adminaccess:edit_donation_update' u_id=uid proj_id=pid d_time=dtime update='True' %}" method="post">
+        {% csrf_token %}
+
+        <i class="far fa-lock"></i>
+        <input type= "number" placeholder = "Donated Amount" name=damt value={{damt}}><br>
+
+        <button type="Edit">Confirm Edit</button>
+        <br>
+     </form>
+
+     <h2 style="color:red;">
+        <a href="{% url 'adminaccess:del_donate' u_id=uid proj_id=pid d_time=dtime %}" method='post'>DELETE DONATION</a>
+    </h2>
+        
+</body>

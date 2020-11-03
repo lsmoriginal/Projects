@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>Home</title>
+</head>
+<body>
+
+    
+    <header>
+        <h1 class="logo">LSMcrowdsource</h1>
+        <h1>Welcome back, {{ fullname }}</h1>
+        <h2>Hello, this is your home page</h2>
+    </header>
+
+    <h2>
+    <a href="{% url 'userhome:new_project' %}">New Project</a>
+    </h2>
+
+    <main>
+
+    <table>
+        <tr>
+            {% for header in header_ongoing %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+    
+        {% for r in ongoing_projects %}
+        <tr>
+            {% for i in r %}
+            <td> {{ i }} </td>
+            {% endfor %}
+    
+            <td>
+                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <br>
+    <br>
+    
+    <h3>
+        <h3>This is your expired projects!</h3>
+    </h3>
+    <table border="1">
+        <tr>
+            {% for header in header_expired %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+    
+        {% for r in expired_projects %}
+        <tr>
+            {% for i in r %}
+            <td> {{ i }} </td>
+            {% endfor %}
+    
+            <td>
+                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+            </td>
+    
+        </tr>
+    
+        {% endfor %}
+    </table>
+    
+    <br>
+    <br>
+    
+    <h3>
+        <h3>Here are your donated projects!</h3>
+    </h3>
+    <table border="1">
+        <tr>
+            {% for header in header_donated %}
+            <th> {{ header }} </th>
+            {% endfor %}
+        </tr>
+    
+        {% for r in donated_projects %}
+        <tr>
+            {% for i in r %}
+            <td> {{ i }} </td>
+            {% endfor %}
+    
+            <td>
+                <a href="{% url 'userhome:view_project' proj_id=r.0 %}">View</a>
+            </td>
+    
+        </tr>
+    
+        {% endfor %}
+    </table>
+    
+    </main>
+    
+    </body>

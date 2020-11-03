@@ -1,14 +1,23 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Register Failed!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppLogin/style_new.css' %}">
+    <title>Registration Error</title>
 </head>
 
 <body>
-    <H1>{{ message }}</H1>
-    <h2></h2>
 
-    <a href="{% url 'login:create_account' %}">Go back</a>
+    <header class = "center">
+        <h1 class = "logo">LSMcrowdsource</h1>
+        <h1>Registration {{status}}</h1>
+        <p>{{message}}</p>
+        <a href="{% url 'login:create_account' %}">Return to registration</a>
+    </header>
+
+    
 </body>
+</html>

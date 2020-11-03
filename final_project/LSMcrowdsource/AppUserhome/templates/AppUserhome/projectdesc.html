@@ -1,19 +1,30 @@
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Project: {{ project_name }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'AppUserhome/style.css' %}">
+    <title>{{ project_name }}</title>
 </head>
 
 <body>
+    <header>
+        <h1 class="logo">
+            <a href="{% url 'projectsearch:home' %}">LSMcrowdsource</a>
+            <a href="{% url 'userhome:home' %}">Home</a>
+        </h1>
+    </header>
+
     <img src="{{ prj_img }}" 
     alt='myself' 
     style="width: 200px; margin: 10px;">
 
     <H1>Project: {{ project_name }}</H1>
     <h3> Owner: {{ project_owner }}</h3>
-    <p>Project Due: {{ pdeadline }}</p>
+    <p style="color: {{ deadln_col }};">Project Due: {{ pdeadline }}</p>
     <p>Descripton:</p>
     {{ pdesc }}
 
@@ -21,7 +32,7 @@
     <h2>Collection so far: ${{ total_sum }}/${{ ptarget }}</h2>
     <h2>{{ progress }}%  completed</h2>
 
-    {% if is_owner %}
+    {% if admin_access %}
     <table border="1">
         <tr>
             {% for header in donor_header %}
@@ -39,4 +50,15 @@
         {% endfor %}
     </table>
     {% endif %}
+
+    {% if donable %}
+    <form class = "create" action="{% url 'userhome:donation' proj_title=proj_id %}" method="post">
+    {% csrf_token %}
+
+        <i class="far fa-hand-holding-usd"></i>
+        <input type= "number" placeholder = "Donate Amt (Make it rain)" name="dnt_amt" value="{{dnt_amt}}">
+
+        <button type="submit">Donate</button>
+    {% endif %}
+
 </body>

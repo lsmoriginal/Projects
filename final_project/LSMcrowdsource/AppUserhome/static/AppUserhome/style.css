@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&family=Noto+Sans+JP&family=Open+Sans&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,500;1,700;1,900&display=swap');
+
+/* COMMON STYLES */
+
+.center {
+   text-align: center;
+}
+
+body {
+   margin: 30px;
+   /* margin-top: 0px; */
+   font-family: "Roboto";
+   color: #5d4431;
+}
+
+
+header { 
+   /* background-color: red; */
+   font-size: 20px;
+   color: black;
+   font-family: "Roboto"
+
+}
+
+
+main {
+   font-size: 13px;
+   font-family: Noto Sans JP
+}
+
+
+.logo {
+   color: #d6c3b2;
+   font-family: 'PT Sans', sans-serif;
+   font-style: italic;
+   text-align: left;
+   font-size: 25px;
+   width: 100%;
+   /* background: black; */
+   margin-bottom: 0px;
+
+   /* border-bottom: 2px solid; */
+}
+
+table {
+   /* background: lightgray; */
+   width: 100%;
+}
+
+table th{
+   text-align: left;
+}
+
+table, th, td {
+   border: 1px solid black;
+   border-collapse: collapse;
+   padding: 2px;
+}
+
+table tr:nth-child(even) {
+   color: #bd9d83
+}
+table tr:nth-child(odd) {
+   color: #a37856
+}
+
+table tr:first-child{
+   background: #d6c3b2;
+   color: #2e2218;
+}
+
+
+/* ICONS */
+
+i {
+   position: absolute;
+   margin-top: 10px;
+   /* background-color: blue; */
+}
+
+
+/* FORMS */
+
+form {
+   /* background-color: palegoldenrod; */
+   padding: 10px 20%;
+}
+
+input {
+   position: relative;
+   left: 25px;
+   /* background-color:red; */
+   border: none;
+   border-bottom: 2px solid #8c674a;
+   width: 80%;
+   padding: 10px;
+   /* margin: 10px; */
+}
+
+
+button {
+   font-size: 12px;
+   font-weight: bold;
+   background: #d6c3b2;
+   border: none;
+   /* text-align: center; */
+   border-radius: 20px;
+   margin-top: 20px;
+   width: 100%;
+   padding: 5px 20px;
+}
+
+button:hover {
+   /* background-color: lightgray; */
+}
+
+
+a {
+   /* text-decoration: none; */
+   color: #b18a6c;
+   display: inline-block;
+
+}
+
+
+
+/* LOGIN & CREATE*/
+/* navigation bar */
+nav {
+   display: flex;
+   /* background-color: red; */
+   justify-content: center;
+}
+
+nav li{
+   display: inline;
+
+}
+
+/* navigation links */
+nav a{
+   text-decoration: none;
+   color: #5d4431;
+   opacity: 0.4;
+   font-size: 25px;
+   margin-right: 20px;
+   font-weight: 900;
+}
+
+nav .active_tab {
+   opacity: 1;
+   text-decoration: underline;
+}
+
+
+
+/* LOGIN FAIL PAGE */
+
+/* main.loginfail {
+   text-align: center;
+} */

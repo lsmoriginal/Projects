@@ -25,4 +25,6 @@ urlpatterns = [
 
     # include the namespace of the app
     path('userhome/', include('AppUserhome.urls', namespace='userhome')),
+    path('projectsearch/', include('AppProjectSearch.urls', namespace='projectsearch')),
+    path('adminaccess/', include('AppAdminAccess.urls', namespace='adminaccess')),
 ]
